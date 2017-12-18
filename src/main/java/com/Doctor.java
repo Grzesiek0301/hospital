@@ -1,4 +1,4 @@
-package hospital1;
+package com;
 
 
 import javax.print.Doc;
