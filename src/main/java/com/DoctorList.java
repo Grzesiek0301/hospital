@@ -6,78 +6,81 @@ import java.util.TreeMap;
 
 public class DoctorList {
 
-	Map<Integer, Doctor> mapa = new TreeMap<>();
-
-	public void addDoctors() {
-	/*	Doctor[] doctors = {
-				new Doctor("Grzegorz", "Urbanski", 9001),
-				new Doctor("Marlena", "Urbanska", 9109),
-				new Doctor("Grzegorz1", "Urbanski1", 9002)
-		};
-
-		for (Doctor doctor : doctors) {
-			mapa.put(doctor.getId(), doctor);
-		}*/
-		System.out.print("Imie lekarza: ");
-		Scanner readName = new Scanner(System.in);
-		String name = readName.nextLine();
-
-		System.out.print("Nazwisko lekarza: ");
-		Scanner readSurname = new Scanner(System.in);
-		String surname = readSurname.nextLine();
-
-		System.out.print("ID lekarza: ");
-		Scanner readId = new Scanner(System.in);
-		int id = readId.nextInt();
-
-		Doctor doctor = new Doctor(name, surname, id);
-
-		mapa.put(doctor.getId(), doctor);
-	}
-
-	public void seeDoctor() {
-
-		System.out.println(mapa);
-	}
-
-	public void removeDoctor() {
-		System.out.println("Podaj ID lekarza ktorego chcesz usunac: ");
-		Scanner removeDoctor = new Scanner(System.in);
-		int id = removeDoctor.nextInt();
-		mapa.remove(id);
-	}
+	private final Map<Integer, Doctor> map = new TreeMap<>();
 
 	public void choice() {
-		int licznik = 0;
-		while (licznik == 0) {
-			System.out.println("Co chcesz zrobic?");
-			System.out.println("1.Dodac lekarza.");
-			System.out.println("2.Usunac lekarza");
-			System.out.println("3.Pokaz liste lekarzy.");
-			System.out.println("4.Zakończ ");
+		while (true) {
+			System.out.println("What do you want to do?");
+			System.out.println("1.Add the doctor.");
+			System.out.println("2.Remove the doctor.");
+			System.out.println("3.Show list of doctors.");
+			System.out.println("4.Exit ");
 			System.out.println("");
-			System.out.println("Podaj liczbe (1-4): ");
+			System.out.println("Choose number from 1 to 4: ");
 
 			int read;
 			Scanner write1 = new Scanner(System.in);
 			read = write1.nextInt();
 
-			if (read == 1) {
-				addDoctors();
-				System.out.println("Dodano lekarza");
-
-			} else if (read == 2) {
-				removeDoctor();
-				System.out.println("Usunieto lekarza");
-
-			} else if (read == 3) {
-				System.out.println("Lista lekarzy:");
-				seeDoctor();
-			} else if (read == 4) {
-				System.out.println("Zakonczono");
-				break;
-			}
-
+			triggerMenu(read);
 		}
+	}
+
+	private void triggerMenu(int read) {
+		switch (read) {
+			case 1:
+				addDoctors();
+				printInfo("Doctor added");
+				break;
+			case 2:
+				removeDoctor();
+				printInfo("Doctor remove");
+				break;
+			case 3:
+				printInfo("List of doctors:");
+				seeDoctor();
+				System.out.println("--------------------------");
+				break;
+			case 4:
+				printInfo("Finished");
+				break;
+		}
+	}
+
+	public void addDoctors() {
+		String nameFromUser = getStringParameter("Doctor's name:");
+		String surnameFromUser = getStringParameter("Doctor's surname:");
+		int idFromUser = getIdFromUser();
+		Doctor doctor = new Doctor(nameFromUser, surnameFromUser, idFromUser);
+
+		map.put(doctor.getId(), doctor);
+	}
+
+	public void removeDoctor() {
+		System.out.println("Enter ID of doctor which you want to remove: ");
+		Scanner removeDoctor = new Scanner(System.in);
+		int id = removeDoctor.nextInt();
+		map.remove(id);
+	}
+
+	public void seeDoctor() {
+		System.out.println(map);
+	}
+
+	public static void printInfo(String info) {
+		System.out.println(info);
+		System.out.println("--------------------");
+	}
+
+	public static String getStringParameter(String parameter) {
+		System.out.println(parameter);
+		Scanner reader = new Scanner(System.in);
+		return reader.nextLine();
+	}
+
+	public static int getIdFromUser() {
+		System.out.print("Doctor ID: ");
+		Scanner readId = new Scanner(System.in);
+		return readId.nextInt();
 	}
 }
