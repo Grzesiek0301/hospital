@@ -8,19 +8,21 @@ public class DoctorList {
 
 	private final Map<Integer, Doctor> map = new TreeMap<>();
 
-	public void choice() {
-		while (true) {
-			System.out.println("What do you want to do?");
-			System.out.println("1.Add the doctor.");
-			System.out.println("2.Remove the doctor.");
-			System.out.println("3.Show list of doctors.");
-			System.out.println("4.Exit ");
-			System.out.println("");
-			System.out.println("Choose number from 1 to 4: ");
+	private boolean loopCondition = true;
 
-			int read;
+	public void choice() {
+		while (loopCondition == true) {
+			StringBuilder printMainMessage = new StringBuilder();
+			printMainMessage
+					.append("What do you want to do?\n\n")
+					.append("1.Add the doctor.\n")
+					.append("2.Remove the doctor.\n")
+					.append("3.Show list of doctors.\n")
+					.append("4.Exit \n");
+			System.out.println(printMainMessage);
+
 			Scanner write1 = new Scanner(System.in);
-			read = write1.nextInt();
+			int read = write1.nextInt();
 
 			triggerMenu(read);
 		}
@@ -43,7 +45,7 @@ public class DoctorList {
 				break;
 			case 4:
 				printInfo("Finished");
-				break;
+				loopCondition = false;
 		}
 	}
 
@@ -51,9 +53,10 @@ public class DoctorList {
 		String nameFromUser = getStringParameter("Doctor's name:");
 		String surnameFromUser = getStringParameter("Doctor's surname:");
 		int idFromUser = getIdFromUser();
-		Doctor doctor = new Doctor(nameFromUser, surnameFromUser, idFromUser);
+		String medicalSpecializationDoctor = getStringParameter("Doctor specialization: ");
+		Doctor doctor = new Doctor(nameFromUser, surnameFromUser, idFromUser, medicalSpecializationDoctor);
 
-		map.put(doctor.getId(), doctor);
+		map.put(doctor.getPersonalDoctorId(), doctor);
 	}
 
 	public void removeDoctor() {
