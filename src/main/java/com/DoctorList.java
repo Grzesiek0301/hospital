@@ -8,24 +8,6 @@ public class DoctorList {
 
 	private final Map<Integer, Doctor> map = new TreeMap<>();
 
-	public void choice() {
-		while (true) {
-			System.out.println("What do you want to do?");
-			System.out.println("1.Add the doctor.");
-			System.out.println("2.Remove the doctor.");
-			System.out.println("3.Show list of doctors.");
-			System.out.println("4.Exit ");
-			System.out.println("");
-			System.out.println("Choose number from 1 to 4: ");
-
-			int read;
-			Scanner write1 = new Scanner(System.in);
-			read = write1.nextInt();
-
-			triggerMenu(read);
-		}
-	}
-
 	private void triggerMenu(int read) {
 		switch (read) {
 			case 1:
@@ -44,6 +26,24 @@ public class DoctorList {
 			case 4:
 				printInfo("Finished");
 				break;
+		}
+	}
+
+	public void choice() {
+		while (true) {
+			System.out.println("What do you want to do?");
+			System.out.println("1.Add the doctor.");
+			System.out.println("2.Remove the doctor.");
+			System.out.println("3.Show list of doctors.");
+			System.out.println("4.Exit ");
+			System.out.println("");
+			System.out.println("Choose number from 1 to 4: ");
+
+			int read;
+			Scanner write1 = new Scanner(System.in);
+			read = write1.nextInt();
+
+			triggerMenu(read);
 		}
 	}
 
