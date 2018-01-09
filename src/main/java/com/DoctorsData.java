@@ -1,10 +1,10 @@
 package com;
 
+import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 public class DoctorsData {
-    private final Map<Integer, Doctor> mapDoctors = new TreeMap<>();
+    private final Map<Integer, Doctor> mapDoctors = new HashMap<>();
 
     public void addDoctor(int id, Doctor doctor) {
         mapDoctors.put(id, doctor);

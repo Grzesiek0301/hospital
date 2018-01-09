@@ -2,9 +2,14 @@ package com;
 
 import java.util.Scanner;
 
-import static com.DoctorList.printInfo;
+import static com.Commands.*;
 
 public class Menu {
+    private final DoctorsData doctorsData;
+
+    public Menu(DoctorsData doctorsData) {
+        this.doctorsData = doctorsData;
+    }
 
     public void choice() {
         while (true) {
@@ -16,25 +21,19 @@ public class Menu {
             System.out.println("");
             System.out.println("Choose number from 1 to 4: ");
 
-            int read;
-            Scanner write1 = new Scanner(System.in);
-            read = write1.nextInt();
+            Scanner input = new Scanner(System.in);
 
-            triggerMenu(read);
+            triggerMenu(input.nextInt());
         }
     }
-
-    DoctorsData doctorsData;
-    Commands commands;
 
     private void triggerMenu(int read) {
         switch (read) {
             case 1:
-                doctorsData.addDoctor(commands.getDoctorFromUser().getId(), commands.getDoctorFromUser());
-                printInfo("Doctor added");
+                doctorsData.addDoctor(getIdFromUser(), getDoctorFromUser());
                 break;
             case 2:
-                doctorsData.removeDoctor(commands.getIdToremove());
+                doctorsData.removeDoctor(getIdToRemove());
                 printInfo("Doctor remove");
                 break;
             case 3:
@@ -48,4 +47,8 @@ public class Menu {
         }
     }
 
+    public static void printInfo(String info) {
+        System.out.println(info);
+        System.out.println("--------------------");
+    }
 }
