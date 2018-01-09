@@ -2,8 +2,8 @@ package com;
 
 public class Main {
 	public static void main(String[] args) {
-
-		Menu menu = new Menu();
+		DoctorsData doctorsData = new DoctorsData();
+		Menu menu = new Menu(doctorsData);
 		menu.choice();
 	}
 }
