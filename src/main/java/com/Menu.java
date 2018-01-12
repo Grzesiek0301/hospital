@@ -13,13 +13,16 @@ public class Menu {
 
     public void choice() {
         while (true) {
-            System.out.println("What do you want to do?");
-            System.out.println("1.Add the doctor.");
-            System.out.println("2.Remove the doctor.");
-            System.out.println("3.Show list of doctors.");
-            System.out.println("4.Exit ");
-            System.out.println("");
-            System.out.println("Choose number from 1 to 4: ");
+            StringBuilder mainMessage = new StringBuilder();
+            mainMessage.append("What do you want to do?")
+                    .append("1.Add the doctor. ")
+                    .append("2.Remove the doctor.")
+                    .append("3.Show list of doctors.")
+                    .append("4.Exit")
+                    .append(" ")
+                    .append("Choose number from 1 to 4: ")
+                    .toString();
+            System.out.println(mainMessage);
 
             Scanner input = new Scanner(System.in);
 
