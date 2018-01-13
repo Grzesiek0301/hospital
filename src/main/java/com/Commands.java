@@ -7,7 +7,8 @@ public class Commands {
         int id = getIdFromUser();
         String name = getStringParameter("Doctor's name :");
         String surname = getStringParameter("Doctor's surname :");
-        Doctor doctor = new Doctor(name, surname, id);
+        String medicalSpecializiation = getStringParameter("Doctor's specializiation: ");
+        Doctor doctor = new Doctor(name, surname, id, medicalSpecializiation);
         return doctor;
     }
 
