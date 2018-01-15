@@ -16,7 +16,7 @@ public class DoctorsData {
 
     public void getList() {
         for (Map.Entry<Integer, Doctor> mapa : mapDoctors.entrySet()) {
-            System.out.println(mapa.getValue().getName() + "  " + mapa.getValue().getSurname());
+            System.out.println(mapa.getValue().getName() + "  " + mapa.getValue().getSurname() + " " + mapa.getValue().getMedicalSpecializiation());
         }
     }
 }
