@@ -2,6 +2,8 @@ package com;
 
 import java.util.Scanner;
 
+import static com.MedicalSpecializiation.getMedicialSpecializiation;
+
 public class Commands {
     public static Doctor getDoctorFromUser() {
         String name = getStringParameter("Doctor's name :");
@@ -26,19 +28,5 @@ public class Commands {
         System.out.println(parameter);
         Scanner reader = new Scanner(System.in);
         return reader.nextLine();
-    }
-
-    public static MedicalSpecializiation getMedicialSpecializiation() {
-        System.out.println("Enter Doctor's medicial specializiation (PATHOLOGY, CARDIOLOGY, UROLOGSY, NEUROLOGY):");
-        String selectedMedicialSpecializiation = getStringParameter("Your choise:");
-        if (selectedMedicialSpecializiation.equals("PATHOLOGY")) {
-            return MedicalSpecializiation.PATHOLOGY;
-        } else if (selectedMedicialSpecializiation.equals("CARDIOLOGY")) {
-            return MedicalSpecializiation.CARDIOLOGY;
-        } else if (selectedMedicialSpecializiation.equals("UROLOGSY")) {
-            return MedicalSpecializiation.UROLOGY;
-        } else if (selectedMedicialSpecializiation.equals("NEUROLOGY")) {
-            return MedicalSpecializiation.NEUROLOGY;
-        } else return MedicalSpecializiation.NEUROLOGY;
     }
 }
