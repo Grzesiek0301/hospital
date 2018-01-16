@@ -9,7 +9,8 @@ public class Commands {
         String name = getStringParameter("Doctor's name :");
         String surname = getStringParameter("Doctor's surname :");
         int id = getIdFromUser();
-        MedicalSpecializiation medicalSpecializiation = getMedicialSpecializiation();
+        printMessage("Enter Doctor's medicial specializiation (PATHOLOGY, CARDIOLOGY, UROLOGY, NEUROLOGY):");
+        MedicalSpecializiation medicalSpecializiation = getMedicialSpecializiation(getStringParameter("Your choise: "));
         Doctor doctor = new Doctor(name, surname, id, medicalSpecializiation);
         return doctor;
     }
@@ -28,5 +29,9 @@ public class Commands {
         System.out.println(parameter);
         Scanner reader = new Scanner(System.in);
         return reader.nextLine();
+    }
+
+    public static void printMessage(String textOfMessage) {
+        System.out.println(textOfMessage);
     }
 }

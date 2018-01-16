@@ -9,9 +9,7 @@ public enum MedicalSpecializiation {
     NEUROLOGY,
     UROLOGY;
 
-    public static MedicalSpecializiation getMedicialSpecializiation() {
-        System.out.println("Enter Doctor's medicial specializiation (PATHOLOGY, CARDIOLOGY, UROLOGY, NEUROLOGY):");
-        String selectedMedicialSpecializiation = getStringParameter("Your choise:");
+    public static MedicalSpecializiation getMedicialSpecializiation(String selectedMedicialSpecializiation) {
         if (selectedMedicialSpecializiation.equals(PATHOLOGY.name())) {
             return MedicalSpecializiation.PATHOLOGY;
         } else if (selectedMedicialSpecializiation.equals(CARDIOLOGY.name())) {
@@ -21,11 +19,11 @@ public enum MedicalSpecializiation {
         } else return MedicalSpecializiation.NEUROLOGY;
     }
 
-    private static String getStringParameter(String parameter) {
-        System.out.println(parameter);
-        Scanner reader = new Scanner(System.in);
-        return reader.nextLine();
-    }
-
-
+//    public static MedicalSpecializiation getMedicialSpecializiation(String selectedMedicialSpecializiation) {
+//        for (MedicalSpecializiation medicalSpecializiation : MedicalSpecializiation.values()) {
+//            if (medicalSpecializiation.name().equals(selectedMedicialSpecializiation)) {
+//                return medicalSpecializiation;
+//            }
+//        }
+//    }
 }
