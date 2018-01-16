@@ -26,6 +26,10 @@ public class Doctor {
         return personalNumber;
     }
 
+    public MedicalSpecializiation getMedicalSpecializiation() {
+        return medicalSpecializiation;
+    }
+
     public String toString() {
         return name + " " + surname;
     }
