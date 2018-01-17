@@ -2,7 +2,7 @@ package com;
 
 import java.util.Scanner;
 
-import static com.MedicalSpecializiation.getMedicialSpecializiation;
+import static com.medicalSpecialization.getMedicialSpecialization;
 
 public class Commands {
     public static Doctor getDoctorFromUser() {
@@ -10,7 +10,7 @@ public class Commands {
         String surname = getStringParameter("Doctor's surname :");
         int id = getIdFromUser();
         printMessage("Enter Doctor's medicial specializiation (PATHOLOGY, CARDIOLOGY, UROLOGY, NEUROLOGY):");
-        MedicalSpecializiation medicalSpecializiation = getMedicialSpecializiation(getStringParameter("Your choise: "));
+        medicalSpecialization medicalSpecializiation = getMedicialSpecialization(getStringParameter("Your choise: "));
         Doctor doctor = new Doctor(name, surname, id, medicalSpecializiation);
         return doctor;
     }

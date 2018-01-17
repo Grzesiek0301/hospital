@@ -4,9 +4,9 @@ public class Doctor {
     private final int personalNumber;
     private final String name;
     private final String surname;
-    private final MedicalSpecializiation medicalSpecializiation;
+    private final medicalSpecialization medicalSpecializiation;
 
-    public Doctor(String name, String surname, int personalNumber, MedicalSpecializiation medicalSpecializiation) {
+    public Doctor(String name, String surname, int personalNumber, medicalSpecialization medicalSpecializiation) {
         this.personalNumber = personalNumber;
         this.surname = surname;
         this.name = name;
@@ -26,7 +26,7 @@ public class Doctor {
         return personalNumber;
     }
 
-    public MedicalSpecializiation getMedicalSpecializiation() {
+    public medicalSpecialization getMedicalSpecializiation() {
         return medicalSpecializiation;
     }
 
