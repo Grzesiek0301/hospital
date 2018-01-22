@@ -1,7 +1,7 @@
 package com;
 
 
-public enum medicalSpecialization {
+public enum MedicalSpecialization {
 
     PATHOLOGY,
     CARDIOLOGY,
@@ -10,8 +10,8 @@ public enum medicalSpecialization {
     NOT_DEFINED;
 
 
-    public static medicalSpecialization getMedicialSpecialization(String medicialSpecialization) {
-        for (medicalSpecialization specialization : medicalSpecialization.values()) {
+    public static MedicalSpecialization getMedicialSpecialization(String medicialSpecialization) {
+        for (MedicalSpecialization specialization : MedicalSpecialization.values()) {
             if (specialization.name().equals(medicialSpecialization)) {
                 return specialization;
             }
