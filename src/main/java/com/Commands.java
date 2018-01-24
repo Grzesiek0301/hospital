@@ -2,12 +2,15 @@ package com;
 
 import java.util.Scanner;
 
+import static com.MedicalSpecialization.getMedicialSpecialization;
+
 public class Commands {
     public static Doctor getDoctorFromUser() {
         String name = getStringParameter("Doctor's name :");
         String surname = getStringParameter("Doctor's surname :");
         int id = getIdFromUser();
-        MedicalSpecializiation medicalSpecializiation = getMedicialSpecializiation();
+        printMessage("Enter Doctor's medicial specializiation (PATHOLOGY, CARDIOLOGY, UROLOGY, NEUROLOGY):");
+        MedicalSpecialization medicalSpecializiation = getMedicialSpecialization(getStringParameter("Your choise: "));
         Doctor doctor = new Doctor(name, surname, id, medicalSpecializiation);
         return doctor;
     }
@@ -28,17 +31,7 @@ public class Commands {
         return reader.nextLine();
     }
 
-    public static MedicalSpecializiation getMedicialSpecializiation() {
-        System.out.println("Enter Doctor's medicial specializiation (PATHOLOGY, CARDIOLOGY, UROLOGSY, NEUROLOGY):");
-        String selectedMedicialSpecializiation = getStringParameter("Your choise:");
-        if (selectedMedicialSpecializiation.equals("PATHOLOGY")) {
-            return MedicalSpecializiation.PATHOLOGY;
-        } else if (selectedMedicialSpecializiation.equals("CARDIOLOGY")) {
-            return MedicalSpecializiation.CARDIOLOGY;
-        } else if (selectedMedicialSpecializiation.equals("UROLOGSY")) {
-            return MedicalSpecializiation.UROLOGY;
-        } else if (selectedMedicialSpecializiation.equals("NEUROLOGY")) {
-            return MedicalSpecializiation.NEUROLOGY;
-        } else return MedicalSpecializiation.NEUROLOGY;
+    public static void printMessage(String textOfMessage) {
+        System.out.println(textOfMessage);
     }
 }
