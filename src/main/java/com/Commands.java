@@ -14,6 +14,7 @@ public class Commands {
         printMessage("Enter Doctor's medicial specializiation (PATHOLOGY, CARDIOLOGY, UROLOGY, NEUROLOGY):");
         MedicalSpecialization medicalSpecializiation = getMedicialSpecialization(getStringParameter("Your choise: "));
         Doctor doctor = new Doctor(name, surname, id, medicalSpecializiation);
+        DoctorFileWriter.writeDoctorDataToFile(doctor);
         return doctor;
     }
 

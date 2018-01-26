@@ -18,4 +18,6 @@ public enum MedicalSpecialization {
         }
         return NOT_DEFINED;
     }
+
+
 }
