@@ -1,5 +1,7 @@
 package com;
 
+import com.defined.Doctor;
+
 import java.util.HashMap;
 import java.util.Map;
 

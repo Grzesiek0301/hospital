@@ -1,4 +1,4 @@
-package com;
+package com.defined;
 
 public class Patient {
     private final String name;

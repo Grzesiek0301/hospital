@@ -1,0 +1,2 @@
+123;Grzegorz;Urbanski;NOT_DEFINED
+321;Marlena;Szczygiel;CARDIOLOGY

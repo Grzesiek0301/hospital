@@ -1,4 +1,6 @@
-package com;
+package com.defined;
+
+import com.MedicalSpecialization;
 
 public class Doctor {
     private final int personalNumber;
