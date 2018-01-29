@@ -9,7 +9,6 @@ public enum MedicalSpecialization {
     UROLOGY,
     NOT_DEFINED;
 
-
     public static MedicalSpecialization getMedicialSpecialization(String medicialSpecialization) {
         for (MedicalSpecialization specialization : MedicalSpecialization.values()) {
             if (specialization.name().equals(medicialSpecialization)) {

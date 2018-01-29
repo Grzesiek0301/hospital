@@ -1,5 +1,7 @@
 package com;
 
+import com.models.Doctor;
+
 import java.util.HashMap;
 import java.util.Map;
 

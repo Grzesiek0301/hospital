@@ -1,4 +1,4 @@
-package com;
+package com.models;
 
 public class Patient {
     private final String name;
