@@ -1,8 +1,8 @@
-package com.defined;
+package com.models;
 
 import com.MedicalSpecialization;
 
-public class    Doctor {
+public class Doctor {
     private final int personalNumber;
     private final String name;
     private final String surname;

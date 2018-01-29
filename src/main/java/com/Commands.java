@@ -1,6 +1,6 @@
 package com;
 
-import com.defined.Doctor;
+import com.models.Doctor;
 
 import java.util.Scanner;
 
