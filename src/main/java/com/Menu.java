@@ -7,21 +7,21 @@ import static com.Commands.*;
 public class Menu {
     private final DoctorsData doctorsData;
 
-    public Menu(DoctorsData doctorsData) {
+    Menu(DoctorsData doctorsData) {
         this.doctorsData = doctorsData;
     }
 
     public void choice() {
         while (true) {
             StringBuilder mainMessage = new StringBuilder();
-            mainMessage.append("What do you want to do?\n")
+            mainMessage
+                    .append("What do you want to do?\n")
                     .append("1.Add the doctor. \n")
                     .append("2.Remove the doctor.\n")
                     .append("3.Show list of doctors.\n")
                     .append("4.Exit\n")
                     .append(" \n")
-                    .append("Choose number from 1 to 4: \n")
-                    .toString();
+                    .append("Choose number from 1 to 4: \n");
             System.out.println(mainMessage);
 
             Scanner input = new Scanner(System.in);
@@ -50,7 +50,7 @@ public class Menu {
         }
     }
 
-    public static void printInfo(String info) {
+    private static void printInfo(String info) {
         System.out.println(info);
         System.out.println("--------------------");
     }
