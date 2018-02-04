@@ -1,8 +1,12 @@
 package com;
 
+import com.models.Doctor;
+
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
-import static com.Commands.*;
+import static com.Commands.getDoctorFromUser;
+import static com.Commands.getIdToRemove;
 
 public class Menu {
     private final DoctorsData doctorsData;
@@ -33,16 +37,13 @@ public class Menu {
     private void triggerMenu(int read) {
         switch (read) {
             case 1:
-                doctorsData.addDoctor(getIdFromUser(), getDoctorFromUser());
+                addDoctor();
                 break;
             case 2:
-                doctorsData.removeDoctor(getIdToRemove());
-                printInfo("Doctor remove");
+                removeDoctor();
                 break;
             case 3:
-                printInfo("List of doctors:");
-                doctorsData.getList();
-                System.out.println("--------------------------");
+                printListOfDoctors();
                 break;
             case 4:
                 printInfo("Finished");
@@ -50,8 +51,35 @@ public class Menu {
         }
     }
 
+    private void addDoctor() {
+        try {
+            Doctor doctor = getDoctorFromUser();
+            doctorsData.addDoctor(doctor.getPersonalNumber(), doctor);
+            DoctorFileWriter.writeDoctorDataToFile(doctor);
+        } catch (RuntimeException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    private void printListOfDoctors() {
+        printInfo("List of doctors:");
+        doctorsData.getList();
+        System.out.println("--------------------------");
+    }
+
+    private void removeDoctor() {
+        try {
+            doctorsData.removeDoctor(getIdToRemove());
+            printInfo("Doctor remove");
+        } catch (NoSuchElementException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
     private static void printInfo(String info) {
         System.out.println(info);
         System.out.println("--------------------");
     }
+
+
 }
