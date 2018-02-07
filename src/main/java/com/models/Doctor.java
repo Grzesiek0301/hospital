@@ -44,7 +44,11 @@ public class Doctor {
     }
 
     public void addPatient(Patient patient) {
-        patients.add(new Patient(patient.getName(), patient.getSurname(), personalNumber));
+        patients.add(new Patient.PatientBuilder()
+                .name("Grzeg")
+                .surname("urb")
+                .personalNumber(9001)
+                .build());
     }
 
     public Set<Patient> getPatients() {

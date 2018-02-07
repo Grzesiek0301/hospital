@@ -7,10 +7,10 @@ public class Patient {
     private final String surname;
     private final int personalNumber;
 
-    Patient(String name, String surname, int personalNumber) {
-        this.name = name;
-        this.surname = surname;
-        this.personalNumber = personalNumber;
+    private Patient(final PatientBuilder patientBuilder) {
+        this.name = patientBuilder.name;
+        this.surname = patientBuilder.surname;
+        this.personalNumber = patientBuilder.personalNumber;
     }
 
     public String getName() {
@@ -26,11 +26,6 @@ public class Patient {
     }
 
     @Override
-    public String toString() {
-        return name;
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -42,5 +37,39 @@ public class Patient {
     public int hashCode() {
 
         return Objects.hash(personalNumber);
+    }
+
+    public static class PatientBuilder {
+
+        private String name;
+        private String surname;
+        private int personalNumber;
+        public PatientBuilder name(final String name) {
+            this.name = name;
+            return this;
+        }
+
+        public PatientBuilder surname(final String surname) {
+            this.surname = surname;
+            return this;
+        }
+
+        public PatientBuilder personalNumber(final int personalNumber) {
+            this.personalNumber = personalNumber;
+            return this;
+        }
+
+        public Patient build() {
+            return new Patient(this);
+        }
+
+        @Override
+        public String toString() {
+            return "Patient{" +
+                    "name='" + name + '\'' +
+                    ", surname='" + surname + '\'' +
+                    ", personalNumber=" + personalNumber +
+                    '}';
+        }
     }
 }
