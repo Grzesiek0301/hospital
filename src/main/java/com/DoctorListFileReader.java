@@ -1,6 +1,7 @@
 package com;
 
 import com.models.Doctor;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -27,7 +28,14 @@ public class DoctorListFileReader {
         String name = doctorData[1];
         String surname = doctorData[2];
         String specialization = doctorData[3];
-        return new Doctor(name, surname, id, MedicalSpecialization.getMedicialSpecialization(specialization));
+        MedicalSpecialization medicalSpecialization = MedicalSpecialization.getMedicialSpecialization(specialization);
+        return new Doctor.DoctorBuilder()
+                .personalNumber(id)
+                .name(name)
+                .surname(surname)
+                .medicalSpecialization(medicalSpecialization)
+                .patients()
+                .build();
     }
 
     private static void addDoctorToMap(DoctorsData doctorsData, Doctor doctor) {

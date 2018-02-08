@@ -12,14 +12,13 @@ public class Doctor {
     private final MedicalSpecialization medicalSpecializiation;
     private final Set<Patient> patients;
 
-    public Doctor(String name, String surname, int personalNumber, MedicalSpecialization medicalSpecializiation) {
-        this.personalNumber = personalNumber;
-        this.surname = surname;
-        this.name = name;
-        this.medicalSpecializiation = medicalSpecializiation;
-        this.patients = new HashSet<>();
+    private Doctor(final DoctorBuilder doctorBuilder) {
+        this.personalNumber = doctorBuilder.personalNumber;
+        this.name = doctorBuilder.name;
+        this.surname = doctorBuilder.surname;
+        this.medicalSpecializiation = doctorBuilder.medicalSpecialization;
+        this.patients = doctorBuilder.patients;
     }
-
 
     public String getName() {
         return name;
@@ -52,5 +51,42 @@ public class Doctor {
 
     public Set<Patient> getPatients() {
         return new HashSet<>(patients);
+    }
+
+    public static class DoctorBuilder {
+        private int personalNumber;
+        private String name;
+        private String surname;
+        private MedicalSpecialization medicalSpecialization;
+        private Set<Patient> patients;
+
+        public DoctorBuilder personalNumber(int personalNumber) {
+            this.personalNumber = personalNumber;
+            return this;
+        }
+
+        public DoctorBuilder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public DoctorBuilder surname(String surname) {
+            this.surname = surname;
+            return this;
+        }
+
+        public DoctorBuilder medicalSpecialization(MedicalSpecialization medicalSpecialization) {
+            this.medicalSpecialization = medicalSpecialization;
+            return this;
+        }
+
+        public DoctorBuilder patients() {
+            this.patients = new HashSet<>();
+            return this;
+        }
+
+        public Doctor build() {
+            return new Doctor(this);
+        }
     }
 }
