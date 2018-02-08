@@ -80,6 +80,4 @@ public class Menu {
         System.out.println(info);
         System.out.println("--------------------");
     }
-
-
 }

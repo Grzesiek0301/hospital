@@ -2,9 +2,7 @@ package com.models;
 
 import com.MedicalSpecialization;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class Doctor {
@@ -43,8 +41,13 @@ public class Doctor {
         return name + " " + surname;
     }
 
-    public void addPatient(Patient patient) {
-        patients.add(new Patient(patient.getName(), patient.getSurname(), personalNumber));
+    public void addPatient() {
+        Patient patient = new Patient.PatientBuilder()
+                .name("Grzeg")
+                .surname("urb")
+                .personalNumber(9001)
+                .build();
+        patients.add(patient);
     }
 
     public Set<Patient> getPatients() {
