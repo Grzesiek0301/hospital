@@ -2,3 +2,4 @@
 4321;Marlena;Szczygiel;UROLOGY;
 21212;Mariusz;Urbanski;UROLOGY;
 123455;grzegorz;urbanski;PATHOLOGY;
+8547;Marian;Brzeczyszczykiewicz;NEUROLOGY;

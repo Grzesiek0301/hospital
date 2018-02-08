@@ -5,7 +5,7 @@ import com.MedicalSpecialization;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Doctor {
+public class Doctor extends Person {
     private final int personalNumber;
     private final String name;
     private final String surname;

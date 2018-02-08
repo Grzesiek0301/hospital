@@ -2,7 +2,7 @@ package com.models;
 
 import java.util.Objects;
 
-public class Patient {
+public class Patient extends Person{
     private final String name;
     private final String surname;
     private final int personalNumber;
