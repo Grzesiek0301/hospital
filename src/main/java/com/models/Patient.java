@@ -44,6 +44,7 @@ public class Patient {
         private String name;
         private String surname;
         private int personalNumber;
+
         public PatientBuilder name(final String name) {
             this.name = name;
             return this;
@@ -63,13 +64,14 @@ public class Patient {
             return new Patient(this);
         }
 
-        @Override
-        public String toString() {
-            return "Patient{" +
-                    "name='" + name + '\'' +
-                    ", surname='" + surname + '\'' +
-                    ", personalNumber=" + personalNumber +
-                    '}';
-        }
+    }
+
+    @Override
+    public String toString() {
+        return "Patient{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", personalNumber=" + personalNumber +
+                '}';
     }
 }
