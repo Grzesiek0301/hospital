@@ -24,8 +24,9 @@ public class Menu {
                     .append("2.Remove the doctor.\n")
                     .append("3.Show list of doctors.\n")
                     .append("4.Exit\n")
+                    .append("5.Show the person with selceted personal number.\n")
                     .append(" \n")
-                    .append("Choose number from 1 to 4: \n");
+                    .append("Choose number from 1 to 5: \n");
             System.out.println(mainMessage);
 
             Scanner input = new Scanner(System.in);
@@ -48,6 +49,8 @@ public class Menu {
             case 4:
                 printInfo("Finished");
                 break;
+            case 5:
+                showMePerson();
         }
     }
 
@@ -74,6 +77,26 @@ public class Menu {
         } catch (NoSuchElementException ex) {
             System.out.println(ex.getMessage());
         }
+    }
+
+    private void showMePerson() {
+        printInfo("Do you want to see Doctor or Patient? \nIf you want to see Doctor press [1] but if you want to see press[2]");
+        choosePersonOrDoctor(getNumberFromUser());
+    }
+
+    private void choosePersonOrDoctor(int number) {
+        if (number == 1) {
+            printInfo("Enter doctor's personal number:");
+            System.out.println(doctorsData.getDoctorNameAndSurname(getNumberFromUser()) + "\n");
+
+        } else if (number == 2) {
+            System.out.println("It will be soon");
+        } else System.out.println("Wrong number!");
+    }
+
+    private int getNumberFromUser() {
+        Scanner input = new Scanner(System.in);
+        return input.nextInt();
     }
 
     private static void printInfo(String info) {
