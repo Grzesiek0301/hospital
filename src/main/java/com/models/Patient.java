@@ -2,27 +2,16 @@ package com.models;
 
 import java.util.Objects;
 
-public class Patient extends Person{
+public class Patient extends Person {
     private final String name;
     private final String surname;
     private final int personalNumber;
 
     private Patient(final PatientBuilder patientBuilder) {
+        super(patientBuilder.personalNumber, patientBuilder.name, patientBuilder.surname);
         this.name = patientBuilder.name;
         this.surname = patientBuilder.surname;
         this.personalNumber = patientBuilder.personalNumber;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public int getPersonalNumber() {
-        return personalNumber;
     }
 
     @Override

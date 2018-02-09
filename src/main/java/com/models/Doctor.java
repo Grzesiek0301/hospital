@@ -13,23 +13,12 @@ public class Doctor extends Person {
     private final Set<Patient> patients;
 
     private Doctor(final DoctorBuilder doctorBuilder) {
+        super(doctorBuilder.personalNumber, doctorBuilder.name, doctorBuilder.surname);
         this.personalNumber = doctorBuilder.personalNumber;
         this.name = doctorBuilder.name;
         this.surname = doctorBuilder.surname;
         this.medicalSpecializiation = doctorBuilder.medicalSpecialization;
         this.patients = doctorBuilder.patients;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public int getPersonalNumber() {
-        return personalNumber;
     }
 
     public MedicalSpecialization getMedicalSpecializiation() {

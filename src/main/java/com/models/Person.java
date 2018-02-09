@@ -5,8 +5,6 @@ public class Person {
     private String name;
     private String surname;
 
-    public Person() {
-    }
 
     public Person(int personalNumber, String name, String surname) {
         this.personalNumber = personalNumber;
