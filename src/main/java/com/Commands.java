@@ -13,7 +13,13 @@ class Commands {
         int id = getIdFromUser();
         printMessage("Enter Doctor's medical specialization (PATHOLOGY, CARDIOLOGY, UROLOGY, NEUROLOGY):");
         MedicalSpecialization medicalSpecialization = getMedicialSpecialization(getStringParameter("Your choise: "));
-        return new Doctor(name, surname, id, medicalSpecialization);
+        return new Doctor.DoctorBuilder()
+                .personalNumber(id)
+                .name(name)
+                .surname(surname)
+                .medicalSpecialization(medicalSpecialization)
+                .patients()
+                .build();
     }
 
     static void printMessage(String textOfMessage) {

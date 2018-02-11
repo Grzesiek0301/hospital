@@ -31,6 +31,11 @@ public class DoctorsData {
         }
     }
 
+    public String getDoctorNameAndSurname(int personalNumber) {
+
+        return "Name: " + mapDoctors.get(personalNumber).getName() + "\nSurname: " + mapDoctors.get(personalNumber).getSurname();
+    }
+
     private void validateIfDoctorNotExists(int id) {
         if (!mapDoctors.containsKey(id)) {
             throw new NoSuchElementException("Doctor doesn't exist with ID :" + id);
