@@ -11,7 +11,7 @@ class Commands {
         String name = getStringParameter("Doctor's name :");
         String surname = getStringParameter("Doctor's surname :");
         int id = getIdFromUser();
-        printMessage("Enter Doctor's medical specialization (PATHOLOGY, CARDIOLOGY, UROLOGY, NEUROLOGY):");
+        getListOfSpecialization();
         MedicalSpecialization medicalSpecialization = getMedicialSpecialization(getStringParameter("Your choise: "));
         return new Doctor.DoctorBuilder()
                 .personalNumber(id)
@@ -30,7 +30,7 @@ class Commands {
         return getIdFromUser();
     }
 
-    static int getIdFromUser() {
+    private static int getIdFromUser() {
         System.out.print("Doctor ID: ");
         Scanner readId = new Scanner(System.in);
         return readId.nextInt();
@@ -41,4 +41,18 @@ class Commands {
         Scanner reader = new Scanner(System.in);
         return reader.nextLine();
     }
+
+    private static void getListOfSpecialization() {
+        System.out.print("Enter Doctor's medical specialization :(");
+        for (MedicalSpecialization specialization : MedicalSpecialization.values()) {
+            System.out.print(specialization + ", ");
+        }
+        System.out.println(")");
+    }
+
+    public static int getNumberFromUser() {
+        Scanner input = new Scanner(System.in);
+        return input.nextInt();
+    }
+
 }

@@ -31,9 +31,9 @@ public class DoctorsData {
         }
     }
 
-    public String getDoctorNameAndSurname(int personalNumber) {
+    public Doctor getDoctor(int personalNumber) {
 
-        return "Name: " + mapDoctors.get(personalNumber).getName() + "\nSurname: " + mapDoctors.get(personalNumber).getSurname();
+        return mapDoctors.get(personalNumber);
     }
 
     private void validateIfDoctorNotExists(int id) {
