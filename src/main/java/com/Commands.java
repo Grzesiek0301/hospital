@@ -30,7 +30,7 @@ class Commands {
         return getIdFromUser();
     }
 
-    static int getIdFromUser() {
+    private static int getIdFromUser() {
         System.out.print("Doctor ID: ");
         Scanner readId = new Scanner(System.in);
         return readId.nextInt();
@@ -42,11 +42,17 @@ class Commands {
         return reader.nextLine();
     }
 
-    public static void getListOfSpecialization() {
+    private static void getListOfSpecialization() {
         System.out.print("Enter Doctor's medical specialization :(");
         for (MedicalSpecialization specialization : MedicalSpecialization.values()) {
             System.out.print(specialization + ", ");
         }
         System.out.println(")");
     }
+
+    public static int getNumberFromUser() {
+        Scanner input = new Scanner(System.in);
+        return input.nextInt();
+    }
+
 }

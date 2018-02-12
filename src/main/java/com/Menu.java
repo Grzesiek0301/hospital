@@ -81,22 +81,12 @@ public class Menu {
 
     private void showMePerson() {
         printInfo("Do you want to see Doctor or Patient? \nIf you want to see Doctor press [1] but if you want to see press[2]");
-        choosePersonOrDoctor(getNumberFromUser());
+        choosePersonOrDoctor(Commands.getNumberFromUser(), "Doctor");
     }
 
-    private void choosePersonOrDoctor(int number) {
-        if (number == 1) {
-            printInfo("Enter doctor's personal number:");
-            System.out.println(doctorsData.getDoctorNameAndSurname(getNumberFromUser()) + "\n");
-
-        } else if (number == 2) {
-            System.out.println("It will be soon");
-        } else System.out.println("Wrong number!");
-    }
-
-    private int getNumberFromUser() {
-        Scanner input = new Scanner(System.in);
-        return input.nextInt();
+    private void choosePersonOrDoctor(int idOfPerson, String indicator) {
+        PersonalDataReceiverFactory personalDataReceiverFactory = new PersonalDataReceiverFactory(doctorsData);
+        System.out.println(personalDataReceiverFactory.getPersonalData(idOfPerson, indicator));
     }
 
     private static void printInfo(String info) {
