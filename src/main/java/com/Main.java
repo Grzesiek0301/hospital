@@ -7,14 +7,7 @@ public class Main {
         Menu menu = new Menu(doctorsData);
         menu.choice();
 
-
-
-
-
-
-
-
-
+String a = "hey";
 
     }
 }
