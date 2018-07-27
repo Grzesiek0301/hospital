@@ -12,7 +12,7 @@ public class Menu {
     private final DoctorsData doctorsData;
 
     Menu(DoctorsData doctorsData) {
-        this.doctorsData = doctorsData;
+         this.doctorsData = doctorsData;
     }
 
     public void choice() {

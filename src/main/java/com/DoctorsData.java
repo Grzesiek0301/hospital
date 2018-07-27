@@ -9,6 +9,9 @@ import java.util.NoSuchElementException;
 public class DoctorsData {
     private final Map<Integer, Doctor> mapDoctors = new HashMap<Integer, Doctor>();
 
+    public void asdf(){
+    }
+
     public void addDoctor(int id, Doctor doctor) {
         validateIfDoctorExist(id);
         mapDoctors.put(id, doctor);
@@ -40,10 +43,6 @@ public class DoctorsData {
         if (!mapDoctors.containsKey(id)) {
             throw new NoSuchElementException("Doctor doesn't exist with ID :" + id);
         }
-    }
-
-    public void fdsa(){
-
     }
 }
 
