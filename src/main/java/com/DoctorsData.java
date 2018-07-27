@@ -41,9 +41,6 @@ public class DoctorsData {
             throw new NoSuchElementException("Doctor doesn't exist with ID :" + id);
         }
     }
-    
-    public void fdsadffd(){
-    }
 }
 
 
