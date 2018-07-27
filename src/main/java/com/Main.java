@@ -6,5 +6,9 @@ public class Main {
         DoctorListFileReader.loadDoctorsFromFile(doctorsData);
         Menu menu = new Menu(doctorsData);
         menu.choice();
+
+
+        
+
     }
 }
