@@ -9,6 +9,7 @@ import java.util.NoSuchElementException;
 public class DoctorsData {
     private final Map<Integer, Doctor> mapDoctors = new HashMap<Integer, Doctor>();
 
+    
     public void addDoctor(int id, Doctor doctor) {
         validateIfDoctorExist(id);
         mapDoctors.put(id, doctor);
