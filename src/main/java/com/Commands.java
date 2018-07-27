@@ -7,6 +7,7 @@ import java.util.Scanner;
 import static com.MedicalSpecialization.getMedicialSpecialization;
 
 class Commands {
+    
     static Doctor getDoctorFromUser() {
         String name = getStringParameter("Doctor's name :");
         String surname = getStringParameter("Doctor's surname :");
